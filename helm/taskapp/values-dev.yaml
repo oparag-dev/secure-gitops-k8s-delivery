@@ -1,0 +1,16 @@
+global:
+  environment: dev
+
+backend:
+  replicaCount: 1
+  image:
+    tag: "dev"
+
+frontend:
+  replicaCount: 1
+  image:
+    tag: "dev"
+
+serviceMonitor:
+  enabled: false
+

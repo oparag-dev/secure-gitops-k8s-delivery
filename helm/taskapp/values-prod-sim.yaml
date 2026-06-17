@@ -1,0 +1,16 @@
+global:
+  environment: prod-sim
+
+backend:
+  replicaCount: 2
+  image:
+    tag: "prod-sim"
+
+frontend:
+  replicaCount: 2
+  image:
+    tag: "prod-sim"
+
+serviceMonitor:
+  enabled: true
+

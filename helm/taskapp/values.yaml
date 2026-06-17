@@ -1,0 +1,53 @@
+global:
+  environment: dev
+
+backend:
+  name: taskapp-backend
+  replicaCount: 1
+  image:
+    repository: oparagospel/taskapp-backend
+    tag: "dev"
+    pullPolicy: IfNotPresent
+  service:
+    type: ClusterIP
+    port: 5000
+  resources:
+    requests:
+      cpu: 100m
+      memory: 128Mi
+    limits:
+      cpu: 500m
+      memory: 512Mi
+  probes:
+    path: /health
+    initialDelaySeconds: 10
+    periodSeconds: 10
+  metrics:
+    enabled: false
+    path: /metrics
+
+frontend:
+  name: taskapp-frontend
+  replicaCount: 1
+  image:
+    repository: oparagospel/taskapp-frontend
+    tag: "dev"
+    pullPolicy: IfNotPresent
+  service:
+    type: ClusterIP
+    port: 8080
+  probes:
+    path: /
+    initialDelaySeconds: 5
+    periodSeconds: 10
+  resources:
+    requests:
+      cpu: 50m
+      memory: 64Mi
+    limits:
+      cpu: 250m
+      memory: 256Mi
+
+serviceMonitor:
+  enabled: false
+  interval: 30s
