@@ -1,0 +1,4 @@
+aws_region        = "eu-west-3"
+environment       = "dev"
+kops_state_bucket = "replace-with-unique-kops-state-bucket-name"
+

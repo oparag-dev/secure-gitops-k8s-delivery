@@ -1,0 +1,26 @@
+---
+- name: Install local DevOps tools for secure GitOps project
+  hosts: localhost
+  connection: local
+  become: true
+  tasks:
+    - name: Update apt cache
+      ansible.builtin.apt:
+        update_cache: true
+
+    - name: Install required packages
+      ansible.builtin.apt:
+        name:
+          - curl
+          - unzip
+          - jq
+          - ca-certificates
+          - gnupg
+        state: present
+
+    - name: Install Helm through Snap
+      community.general.snap:
+        name: helm
+        classic: true
+        state: present
+
