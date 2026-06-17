@@ -1,0 +1,57 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+.pytest_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
+env/
+
+# Flask / app env
+.env
+.env.*
+!.env.example
+
+# Node / frontend
+node_modules/
+dist/
+build/
+.npm/
+.next/
+.vite/
+
+# Logs
+*.log
+logs/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Docker
+*.pid
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+.terraform.lock.hcl
+
+# Kubernetes / secrets
+kubeconfig*
+*.kubeconfig
+secrets/
+*.pem
+*.key
+*.crt
+
+# Local files
+tmp/
+temp/
+.cache/
