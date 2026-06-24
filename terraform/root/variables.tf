@@ -6,7 +6,7 @@ variable "aws_region" {
 variable "project_name" {
   description = "Name of the project"
   type        = string
-  default     = "capstone-project-novara"
+  default     = "taskapp"
 }
 variable "vpc_cidr" {
   description = "CIDR block for the VPC"
@@ -53,7 +53,7 @@ variable "environment" {
 variable "kops_state_bucket_name" {
   description = "S3 bucket name for Kops state store"
   type        = string
-  default     = "opara-kops-state"
+  default     = "taskapp-kops-state-opara"
 }
 variable "domain_name" {
   description = "Root domain name"

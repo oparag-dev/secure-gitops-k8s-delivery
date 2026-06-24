@@ -1,7 +1,7 @@
 variable "project_name" {
   description = "Name of the project"
   type        = string
-  default     = "capstone-project-novara"
+  default     = "taskapp"
 }
 variable "vpc_cidr" {
   description = "CIDR block for the VPC"
