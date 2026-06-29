@@ -29,7 +29,7 @@ backend:
       cpu: 500m
       memory: 512Mi
   probes:
-    path: /health
+    path: /api/health
     initialDelaySeconds: 10
     periodSeconds: 10
   metrics:
