@@ -7,6 +7,7 @@ module "core" {
   environment  = var.environment
 }
 
+
 module "vpc" {
   source = "../modules/vpc"
 
@@ -19,6 +20,22 @@ module "vpc" {
   nat_gateway_enabled = var.nat_gateway_enabled
   single_nat_gateway  = var.single_nat_gateway
 }
+
+module "rds" {
+  source = "../modules/rds"
+
+  project_name       = var.project_name
+  private_subnet_ids = module.vpc.private_subnet_ids
+  security_group_ids = [module.vpc.database_security_group_id]
+
+  db_name     = var.db_name
+  db_username = var.db_username
+  db_password = var.db_password
+
+  instance_class    = var.db_instance_class
+  allocated_storage = var.db_allocated_storage
+}
+
 
 module "kops_state_bucket" {
   source = "../modules/s3"

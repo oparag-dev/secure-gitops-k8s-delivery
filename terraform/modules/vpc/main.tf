@@ -115,14 +115,14 @@ resource "aws_security_group" "backend" {
 
 resource "aws_security_group" "database" {
   name        = "${var.project_name}-db-sg"
-  description = "Allow Postgres only from backend"
+  description = "Allow Postgres from private Kubernetes subnets"
   vpc_id      = aws_vpc.this.id
 
   ingress {
-    from_port       = 5432
-    to_port         = 5432
-    protocol        = "tcp"
-    security_groups = [aws_security_group.backend.id]
+    from_port   = 5432
+    to_port     = 5432
+    protocol    = "tcp"
+    cidr_blocks = var.private_subnet_cidrs
   }
 
   egress {

@@ -32,6 +32,28 @@ spec:
         - name: backend
           image: "{{ .Values.backend.image.repository }}:{{ .Values.backend.image.tag }}"
           imagePullPolicy: {{ .Values.backend.image.pullPolicy }}
+          env:
+            - name: DATABASE_HOST
+              value: {{ .Values.backend.env.databaseHost | quote }}
+            - name: DATABASE_PORT
+              value: {{ .Values.backend.env.databasePort | quote }}
+            - name: DATABASE_NAME
+              value: {{ .Values.backend.env.databaseName | quote }}
+            - name: DATABASE_USER
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.backend.env.secretName }}
+                  key: DATABASE_USER
+            - name: DATABASE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.backend.env.secretName }}
+                  key: DATABASE_PASSWORD
+            - name: SECRET_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.backend.env.secretName }}
+                  key: SECRET_KEY
           ports:
             - name: http
               containerPort: {{ .Values.backend.service.port }}

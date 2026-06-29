@@ -13,6 +13,11 @@ backend:
     repository: oparagospel/taskapp-backend
     tag: "v0.1.0"
     pullPolicy: IfNotPresent
+  env:
+    databaseHost: taskapp-postgres.crammy6g8qwh.eu-west-3.rds.amazonaws.com
+    databasePort: "5432"
+    databaseName: taskapp
+    secretName: taskapp-backend-secrets
   service:
     type: ClusterIP
     port: 5000

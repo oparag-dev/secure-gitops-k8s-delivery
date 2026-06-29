@@ -86,6 +86,28 @@ spec:
         - name: backend
           image: "oparagospel/taskapp-backend:v0.1.0"
           imagePullPolicy: IfNotPresent
+          env:
+            - name: DATABASE_HOST
+              value: "taskapp-postgres.crammy6g8qwh.eu-west-3.rds.amazonaws.com"
+            - name: DATABASE_PORT
+              value: "5432"
+            - name: DATABASE_NAME
+              value: "taskapp"
+            - name: DATABASE_USER
+              valueFrom:
+                secretKeyRef:
+                  name: taskapp-backend-secrets
+                  key: DATABASE_USER
+            - name: DATABASE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: taskapp-backend-secrets
+                  key: DATABASE_PASSWORD
+            - name: SECRET_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: taskapp-backend-secrets
+                  key: SECRET_KEY
           ports:
             - name: http
               containerPort: 5000

@@ -60,3 +60,32 @@ variable "domain_name" {
   type        = string
   default     = "oparatechstack.com"
 }
+variable "db_name" {
+  description = "TaskApp database name"
+  type        = string
+  default     = "taskapp"
+}
+
+variable "db_username" {
+  description = "TaskApp database username"
+  type        = string
+  default     = "taskapp_user"
+}
+
+variable "db_password" {
+  description = "TaskApp database password"
+  type        = string
+  sensitive   = true
+}
+
+variable "db_instance_class" {
+  description = "RDS instance class"
+  type        = string
+  default     = "db.t3.micro"
+}
+
+variable "db_allocated_storage" {
+  description = "RDS allocated storage in GB"
+  type        = number
+  default     = 20
+}

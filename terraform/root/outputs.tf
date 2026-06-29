@@ -21,3 +21,14 @@ output "route53_zone_id" {
 output "route53_name_servers" {
   value = module.dns.name_servers
 }
+output "rds_endpoint" {
+  value = module.rds.db_endpoint
+}
+
+output "rds_port" {
+  value = module.rds.db_port
+}
+
+output "rds_database_name" {
+  value = module.rds.db_name
+}
