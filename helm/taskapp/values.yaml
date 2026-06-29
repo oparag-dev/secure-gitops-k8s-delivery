@@ -10,7 +10,7 @@ backend:
   name: taskapp-backend
   replicaCount: 1
   image:
-    repository: oparagospel/taskapp-backend
+    repository: oparag/taskapp-backend
     tag: "v0.1.0"
     pullPolicy: IfNotPresent
   env:
@@ -40,7 +40,7 @@ frontend:
   name: taskapp-frontend
   replicaCount: 1
   image:
-    repository: oparagospel/taskapp-frontend
+    repository: oparag/taskapp-frontend
     tag: "v0.1.0"
     pullPolicy: IfNotPresent
   service:
