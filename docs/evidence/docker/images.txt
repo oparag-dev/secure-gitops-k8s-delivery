@@ -1,0 +1,10 @@
+TaskApp Docker images
+
+Backend:
+oparagospel/taskapp-backend:v0.1.0
+
+Frontend:
+oparagospel/taskapp-frontend:v0.1.0
+
+Registry:
+Docker Hub
