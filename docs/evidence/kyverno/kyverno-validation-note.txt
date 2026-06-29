@@ -1,0 +1,22 @@
+Kyverno policy validation note
+
+TaskApp Kyverno security policy has been created under:
+
+kyverno/policies/taskapp-deployment-security.yaml
+
+The policy is designed to validate Helm-rendered Kubernetes Deployment manifests for:
+- versioned images
+- disabled service account token automounting
+- non-root pod execution
+- RuntimeDefault seccomp profile
+- disabled privilege escalation
+- dropped Linux capabilities
+- CPU and memory requests and limits
+
+Kyverno CLI validation was skipped at this stage because the Kyverno CLI is not installed locally.
+
+kubectl dry-run was also skipped because the real Kubernetes cluster has not been created yet.
+
+Validation will be completed after either:
+1. Kyverno CLI is installed locally, or
+2. Kyverno is installed into the real kOps cluster.
