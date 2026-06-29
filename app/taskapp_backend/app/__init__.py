@@ -19,7 +19,7 @@ def create_app():
     if db_host and db_user and db_name and db_password:
         encoded_password = quote_plus(db_password)
         database_uri = (
-            f"postgresql://{db_user}:{encoded_password}@{db_host}:{db_port}/{db_name}"
+            f"postgresql://{db_user}:{encoded_password}@{db_host}:{db_port}/{db_name}?sslmode=require"
         )
     else:
         database_uri = 'postgresql://taskapp_user:taskapp_password@localhost:5432/taskapp'

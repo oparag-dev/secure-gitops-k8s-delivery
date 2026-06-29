@@ -11,7 +11,7 @@ backend:
   replicaCount: 1
   image:
     repository: oparag/taskapp-backend
-    tag: "v0.1.0"
+    tag: "v0.1.1"
     pullPolicy: IfNotPresent
   env:
     databaseHost: taskapp-postgres.crammy6g8qwh.eu-west-3.rds.amazonaws.com
