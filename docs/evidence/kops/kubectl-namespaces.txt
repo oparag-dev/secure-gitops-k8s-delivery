@@ -1,0 +1,9 @@
+NAME              STATUS   AGE
+argocd            Active   1s
+default           Active   5m49s
+kube-node-lease   Active   5m49s
+kube-public       Active   5m49s
+kube-system       Active   5m49s
+kyverno           Active   1s
+monitoring        Active   1s
+taskapp           Active   1s

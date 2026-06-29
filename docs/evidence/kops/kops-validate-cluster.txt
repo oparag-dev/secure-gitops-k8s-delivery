@@ -1,0 +1,17 @@
+Validating cluster k8s.oparatechstack.com
+
+INSTANCE GROUPS
+NAME				ROLE		MACHINETYPE	MIN	MAX	SUBNETS
+control-plane-eu-west-3a	ControlPlane	t3.small	1	1	eu-west-3a
+nodes-eu-west-3a		Node		t3.small	1	1	eu-west-3a
+nodes-eu-west-3b		Node		t3.small	1	1	eu-west-3b
+nodes-eu-west-3c		Node		t3.small	1	1	eu-west-3c
+
+NODE STATUS
+NAME			ROLE		READY
+i-00602f8b76a450731	node		True
+i-054b1144c025e4ee6	node		True
+i-06c32e0e15376992d	node		True
+i-0d710279dc08d7131	control-plane	True
+
+Your cluster k8s.oparatechstack.com is ready

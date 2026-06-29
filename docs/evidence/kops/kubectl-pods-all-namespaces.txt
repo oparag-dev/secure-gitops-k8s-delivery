@@ -1,0 +1,27 @@
+NAMESPACE     NAME                                            READY   STATUS    RESTARTS        AGE
+kube-system   aws-cloud-controller-manager-d2hts              1/1     Running   0               4m9s
+kube-system   aws-node-termination-handler-55c8b4f569-d7k89   1/1     Running   0               4m15s
+kube-system   calico-kube-controllers-77bc8bdd59-zt9vw        1/1     Running   0               4m12s
+kube-system   calico-node-7lg9c                               1/1     Running   0               2m42s
+kube-system   calico-node-8vhnc                               1/1     Running   0               2m46s
+kube-system   calico-node-r24b2                               1/1     Running   0               2m45s
+kube-system   calico-node-twrs2                               1/1     Running   0               4m12s
+kube-system   coredns-autoscaler-7fb47b485-fxxqt              1/1     Running   0               4m15s
+kube-system   coredns-dd68b47db-f68mc                         1/1     Running   0               104s
+kube-system   coredns-dd68b47db-pl5zg                         1/1     Running   0               4m15s
+kube-system   dns-controller-684677cdb4-6pgl8                 1/1     Running   0               4m10s
+kube-system   ebs-csi-controller-9c66b86d8-rxtz5              5/5     Running   0               4m15s
+kube-system   ebs-csi-node-78w5g                              3/3     Running   0               2m41s
+kube-system   ebs-csi-node-dfqkm                              3/3     Running   0               2m45s
+kube-system   ebs-csi-node-p8rj9                              3/3     Running   0               3m57s
+kube-system   ebs-csi-node-rpvfq                              3/3     Running   0               2m45s
+kube-system   etcd-manager-events-i-0d710279dc08d7131         1/1     Running   0               4m20s
+kube-system   etcd-manager-main-i-0d710279dc08d7131           1/1     Running   0               4m20s
+kube-system   kops-controller-wn2hd                           1/1     Running   0               4m9s
+kube-system   kube-apiserver-i-0d710279dc08d7131              2/2     Running   1 (4m44s ago)   4m20s
+kube-system   kube-controller-manager-i-0d710279dc08d7131     1/1     Running   2 (4m33s ago)   4m20s
+kube-system   kube-proxy-i-00602f8b76a450731                  1/1     Running   0               2m42s
+kube-system   kube-proxy-i-054b1144c025e4ee6                  1/1     Running   0               2m45s
+kube-system   kube-proxy-i-06c32e0e15376992d                  1/1     Running   0               2m46s
+kube-system   kube-proxy-i-0d710279dc08d7131                  1/1     Running   0               4m20s
+kube-system   kube-scheduler-i-0d710279dc08d7131              1/1     Running   2 (4m33s ago)   4m20s

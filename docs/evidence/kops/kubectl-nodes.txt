@@ -1,0 +1,5 @@
+NAME                  STATUS   ROLES           AGE     VERSION   INTERNAL-IP   EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION    CONTAINER-RUNTIME
+i-00602f8b76a450731   Ready    node            2m26s   v1.35.6   10.0.12.185   <none>        Ubuntu 24.04.4 LTS   6.17.0-1017-aws   containerd://2.1.6
+i-054b1144c025e4ee6   Ready    node            2m29s   v1.35.6   10.0.11.214   <none>        Ubuntu 24.04.4 LTS   6.17.0-1017-aws   containerd://2.1.6
+i-06c32e0e15376992d   Ready    node            2m30s   v1.35.6   10.0.13.204   <none>        Ubuntu 24.04.4 LTS   6.17.0-1017-aws   containerd://2.1.6
+i-0d710279dc08d7131   Ready    control-plane   4m4s    v1.35.6   10.0.11.9     <none>        Ubuntu 24.04.4 LTS   6.17.0-1017-aws   containerd://2.1.6

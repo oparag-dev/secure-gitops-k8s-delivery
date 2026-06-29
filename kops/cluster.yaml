@@ -38,8 +38,8 @@ spec:
   kubelet:
     anonymousAuth: false
   kubernetesApiAccess:
-  - 0.0.0.0/0
-  - ::/0
+  - 155.93.90.182/32
+  - 155.93.90.182/32
   kubernetesVersion: 1.35.6
   masterPublicName: api.k8s.oparatechstack.com
   networkCIDR: 10.0.0.0/16
@@ -48,8 +48,9 @@ spec:
     calico: {}
   nonMasqueradeCIDR: 100.64.0.0/10
   sshAccess:
-  - 0.0.0.0/0
-  - ::/0
+  - 102.90.45.120/32
+  kubernetesApiAccess:
+  - 102.90.45.120/32
   subnets:
   - cidr: 10.0.11.0/24
     id: subnet-0b11a0d7d14e38962
