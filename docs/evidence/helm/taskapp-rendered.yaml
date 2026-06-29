@@ -80,11 +80,14 @@ spec:
       automountServiceAccountToken: false
       securityContext:
         runAsNonRoot: true
+        runAsUser: 10001
+        runAsGroup: 10001
+        fsGroup: 10001
         seccompProfile:
           type: RuntimeDefault
       containers:
         - name: backend
-          image: "oparagospel/taskapp-backend:v0.1.0"
+          image: "oparag/taskapp-backend:v0.1.0"
           imagePullPolicy: IfNotPresent
           env:
             - name: DATABASE_HOST
@@ -170,7 +173,7 @@ spec:
           type: RuntimeDefault
       containers:
         - name: frontend
-          image: "oparagospel/taskapp-frontend:v0.1.0"
+          image: "oparag/taskapp-frontend:v0.1.0"
           imagePullPolicy: IfNotPresent
           ports:
             - name: http
