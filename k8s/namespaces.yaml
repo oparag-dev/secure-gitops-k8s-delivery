@@ -18,4 +18,10 @@ metadata:
   name: argocd
   labels:
     app.kubernetes.io/part-of: gitops
-
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: kyverno
+  labels:
+    app.kubernetes.io/part-of: policy
