@@ -1,12 +1,17 @@
 global:
-  environment: dev
+  environment: prod
+
+serviceAccount:
+  create: true
+  name: taskapp
+  automountServiceAccountToken: false
 
 backend:
   name: taskapp-backend
   replicaCount: 1
   image:
     repository: oparagospel/taskapp-backend
-    tag: "dev"
+    tag: "v0.1.0"
     pullPolicy: IfNotPresent
   service:
     type: ClusterIP
@@ -31,7 +36,7 @@ frontend:
   replicaCount: 1
   image:
     repository: oparagospel/taskapp-frontend
-    tag: "dev"
+    tag: "v0.1.0"
     pullPolicy: IfNotPresent
   service:
     type: ClusterIP
@@ -51,4 +56,3 @@ frontend:
 serviceMonitor:
   enabled: false
   interval: 30s
-

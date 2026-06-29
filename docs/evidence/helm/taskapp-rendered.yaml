@@ -1,0 +1,179 @@
+---
+# Source: taskapp/templates/serviceaccount.yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: taskapp
+  labels:
+    app.kubernetes.io/name: taskapp
+    app.kubernetes.io/part-of: taskapp
+    app.kubernetes.io/managed-by: Helm
+automountServiceAccountToken: false
+
+---
+# Source: taskapp/templates/backend-service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: taskapp-backend
+  labels:
+    app.kubernetes.io/name: taskapp-backend
+    app.kubernetes.io/part-of: taskapp
+    app.kubernetes.io/component: backend
+spec:
+  type: ClusterIP
+  selector:
+    app.kubernetes.io/name: taskapp-backend
+  ports:
+    - name: http
+      port: 5000
+      targetPort: http
+
+
+---
+# Source: taskapp/templates/frontend-service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: taskapp-frontend
+  labels:
+    app.kubernetes.io/name: taskapp-frontend
+    app.kubernetes.io/part-of: taskapp
+    app.kubernetes.io/component: frontend
+spec:
+  type: ClusterIP
+  selector:
+    app.kubernetes.io/name: taskapp-frontend
+  ports:
+    - name: http
+      port: 8080
+      targetPort: http
+
+
+---
+# Source: taskapp/templates/backend-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: taskapp-backend
+  labels:
+    app.kubernetes.io/name: taskapp-backend
+    app.kubernetes.io/part-of: taskapp
+    app.kubernetes.io/component: backend
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/environment: prod
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: taskapp-backend
+      app.kubernetes.io/component: backend
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: taskapp-backend
+        app.kubernetes.io/part-of: taskapp
+        app.kubernetes.io/component: backend
+        app.kubernetes.io/environment: prod
+    spec:
+      serviceAccountName: taskapp
+      automountServiceAccountToken: false
+      securityContext:
+        runAsNonRoot: true
+        seccompProfile:
+          type: RuntimeDefault
+      containers:
+        - name: backend
+          image: "oparagospel/taskapp-backend:v0.1.0"
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 5000
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: http
+            initialDelaySeconds: 10
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: http
+            initialDelaySeconds: 30
+            periodSeconds: 20
+          resources:
+            limits:
+              cpu: 500m
+              memory: 512Mi
+            requests:
+              cpu: 100m
+              memory: 128Mi
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+                - ALL
+
+---
+# Source: taskapp/templates/frontend-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: taskapp-frontend
+  labels:
+    app.kubernetes.io/name: taskapp-frontend
+    app.kubernetes.io/part-of: taskapp
+    app.kubernetes.io/component: frontend
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/environment: prod
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: taskapp-frontend
+      app.kubernetes.io/component: frontend
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: taskapp-frontend
+        app.kubernetes.io/part-of: taskapp
+        app.kubernetes.io/component: frontend
+        app.kubernetes.io/environment: prod
+    spec:
+      serviceAccountName: taskapp
+      automountServiceAccountToken: false
+      securityContext:
+        runAsNonRoot: true
+        seccompProfile:
+          type: RuntimeDefault
+      containers:
+        - name: frontend
+          image: "oparagospel/taskapp-frontend:v0.1.0"
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 8080
+          readinessProbe:
+            httpGet:
+              path: /
+              port: http
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /
+              port: http
+            initialDelaySeconds: 30
+            periodSeconds: 20
+          resources:
+            limits:
+              cpu: 250m
+              memory: 256Mi
+            requests:
+              cpu: 50m
+              memory: 64Mi
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+                - ALL
