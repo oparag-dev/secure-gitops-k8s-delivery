@@ -1,0 +1,19 @@
+kops_state_bucket_name = "taskapp-kops-state-opara"
+private_subnet_ids = [
+  "subnet-0b11a0d7d14e38962",
+  "subnet-0246109b2359e3b90",
+  "subnet-0643ee627157f1e42",
+]
+public_subnet_ids = [
+  "subnet-0bae92662870cd721",
+  "subnet-052905b7848163143",
+  "subnet-0cdc937d1b9ac742a",
+]
+route53_name_servers = tolist([
+  "ns-1315.awsdns-36.org",
+  "ns-1783.awsdns-30.co.uk",
+  "ns-248.awsdns-31.com",
+  "ns-775.awsdns-32.net",
+])
+route53_zone_id = "Z028940922QCMPGQ6PVIY"
+vpc_id = "vpc-074f7558181ad3b28"

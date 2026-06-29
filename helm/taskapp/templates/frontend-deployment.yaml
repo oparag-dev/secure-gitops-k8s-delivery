@@ -19,6 +19,8 @@ spec:
         app.kubernetes.io/part-of: taskapp
         app.kubernetes.io/component: frontend
     spec:
+     serviceAccountName: {{ .Values.serviceAccount.name }}
+     automountServiceAccountToken: {{ .Values.serviceAccount.automountServiceAccountToken }}
       securityContext:
         runAsNonRoot: true
         seccompProfile:

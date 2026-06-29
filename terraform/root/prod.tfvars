@@ -8,7 +8,7 @@ domain_name = "oparatechstack.com"
 
 vpc_cidr = "10.0.0.0/16"
 
-availability_zones = [
+azs = [
   "eu-west-3a",
   "eu-west-3b",
   "eu-west-3c"

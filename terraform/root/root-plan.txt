@@ -400,19 +400,6 @@ Terraform will perform the following actions:
       + id                     = (known after apply)
       + ingress                = [
           + {
-              + cidr_blocks      = [
-                  + "0.0.0.0/0",
-                ]
-              + from_port        = 22
-              + ipv6_cidr_blocks = []
-              + prefix_list_ids  = []
-              + protocol         = "tcp"
-              + security_groups  = []
-              + self             = false
-              + to_port          = 22
-                # (1 unchanged attribute hidden)
-            },
-          + {
               + cidr_blocks      = []
               + from_port        = 5000
               + ipv6_cidr_blocks = []
@@ -494,19 +481,6 @@ Terraform will perform the following actions:
         ]
       + id                     = (known after apply)
       + ingress                = [
-          + {
-              + cidr_blocks      = [
-                  + "0.0.0.0/0",
-                ]
-              + from_port        = 22
-              + ipv6_cidr_blocks = []
-              + prefix_list_ids  = []
-              + protocol         = "tcp"
-              + security_groups  = []
-              + self             = false
-              + to_port          = 22
-                # (1 unchanged attribute hidden)
-            },
           + {
               + cidr_blocks      = [
                   + "0.0.0.0/0",

@@ -75,7 +75,13 @@ terraform -chdir="$ROOT_DIR" init
 terraform -chdir="$ROOT_DIR" validate
 terraform -chdir="$ROOT_DIR" plan -var-file="$ROOT_TFVARS" -out="$ROOT_PLAN"
 
-terraform -chdir="$ROOT_DIR" show -no-color "$ROOT_PLAN" > "$ROOT_PLAN_TEXT"
+terraform -chdir="$ROOT_DIR" show -no-color "$ROOT_PLAN" > "$ROOT_DIR/$ROOT_PLAN_TEXT"
+
+if [ ! -s "$ROOT_DIR/$ROOT_PLAN_TEXT" ]; then
+  echo "ERROR: Root plan text was not created."
+  echo "Aborting because safety checks cannot run."
+  exit 1
+fi
 
 echo
 echo "Running safety checks on Terraform root plan..."
@@ -94,8 +100,8 @@ if grep -qi "$BACKEND_BUCKET" "$ROOT_DIR/$ROOT_PLAN_TEXT"; then
   exit 1
 fi
 
-if grep -q "from_port.*22" "$ROOT_DIR/$ROOT_PLAN_TEXT" && grep -q "0.0.0.0/0" "$ROOT_DIR/$ROOT_PLAN_TEXT"; then
-  echo "ERROR: Root plan may expose SSH on port 22 to 0.0.0.0/0."
+if grep -A30 -B10 'from_port[[:space:]]*=[[:space:]]*22' "$ROOT_DIR/$ROOT_PLAN_TEXT" | grep -q '0.0.0.0/0'; then
+  echo "ERROR: Root plan exposes SSH on port 22 to 0.0.0.0/0."
   echo "Fix security group rules before applying."
   exit 1
 fi
