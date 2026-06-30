@@ -45,7 +45,7 @@ frontend:
     pullPolicy: IfNotPresent
   service:
     type: LoadBalancer
-    port: 8080
+    port: 80
   probes:
     path: /
     initialDelaySeconds: 5
