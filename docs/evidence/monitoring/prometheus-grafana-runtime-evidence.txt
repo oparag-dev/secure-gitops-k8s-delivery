@@ -1,0 +1,33 @@
+Prometheus and Grafana Monitoring Evidence
+Date: Tue Jun 30 09:17:43 PM WAT 2026
+
+Monitoring pods:
+NAME                                                   READY   STATUS    RESTARTS   AGE   IP                NODE                  NOMINATED NODE   READINESS GATES
+monitoring-grafana-6886c45c58-js4d5                    2/3     Running   0          11m   100.105.14.22     i-0f23d090269cfaca0   <none>           <none>
+monitoring-kube-prometheus-operator-586b866846-qbhzb   1/1     Running   0          11m   100.101.129.142   i-0c3432ed78d85346e   <none>           <none>
+monitoring-kube-state-metrics-5f77864d57-cn55g         1/1     Running   0          11m   100.105.14.21     i-0f23d090269cfaca0   <none>           <none>
+monitoring-prometheus-node-exporter-b87qx              1/1     Running   0          11m   10.0.12.122       i-0c3432ed78d85346e   <none>           <none>
+monitoring-prometheus-node-exporter-gw7xc              1/1     Running   0          11m   10.0.11.64        i-077fa2368f466f9ef   <none>           <none>
+monitoring-prometheus-node-exporter-jzsxx              1/1     Running   0          11m   10.0.11.50        i-0f23d090269cfaca0   <none>           <none>
+prometheus-monitoring-kube-prometheus-prometheus-0     2/2     Running   0          11m   100.101.129.143   i-0c3432ed78d85346e   <none>           <none>
+
+Monitoring services:
+NAME                                    TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)             AGE
+monitoring-grafana                      ClusterIP   100.65.199.66    <none>        80/TCP              11m
+monitoring-kube-prometheus-operator     ClusterIP   100.68.129.241   <none>        443/TCP             11m
+monitoring-kube-prometheus-prometheus   ClusterIP   100.67.9.106     <none>        9090/TCP,8080/TCP   11m
+monitoring-kube-state-metrics           ClusterIP   100.69.170.234   <none>        8080/TCP            11m
+monitoring-prometheus-node-exporter     ClusterIP   100.68.223.65    <none>        9100/TCP            11m
+prometheus-operated                     ClusterIP   None             <none>        9090/TCP            11m
+
+Helm release:
+NAME      	NAMESPACE 	REVISION	UPDATED                                	STATUS  	CHART                       	APP VERSION
+monitoring	monitoring	1       	2026-06-30 21:04:32.484433959 +0100 WAT	deployed	kube-prometheus-stack-87.4.0	v0.92.1    
+
+Prometheus targets service:
+NAME                                    TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)             AGE
+monitoring-kube-prometheus-prometheus   ClusterIP   100.67.9.106   <none>        9090/TCP,8080/TCP   11m
+
+Grafana service:
+NAME                 TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)   AGE
+monitoring-grafana   ClusterIP   100.65.199.66   <none>        80/TCP    11m
