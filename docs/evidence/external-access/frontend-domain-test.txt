@@ -1,0 +1,16 @@
+Frontend domain test
+
+Domain:
+http://app.oparatechstack.com:8080
+
+LoadBalancer:
+http://a8343fe33e29e4a438b419805612f7af-1028792003.eu-west-3.elb.amazonaws.com:8080
+
+Result:
+HTTP/1.1 200 OK
+
+Server:
+nginx/1.27.5
+
+Conclusion:
+The frontend is publicly reachable through Route 53 and the AWS LoadBalancer.
