@@ -1,0 +1,56 @@
+Final Live Application Test
+
+Application URL:
+https://app.oparatechstack.com/login
+
+HTTP frontend test:
+HTTP/1.1 200 OK
+Accept-Ranges: bytes
+Content-Length: 608
+Content-Type: text/html
+Date: Tue, 30 Jun 2026 19:48:45 GMT
+ETag: "6a44134b-260"
+Last-Modified: Tue, 30 Jun 2026 19:04:43 GMT
+Server: nginx/1.27.5
+Connection: keep-alive
+
+
+HTTPS frontend test:
+HTTP/1.1 200 OK
+Accept-Ranges: bytes
+Content-Length: 608
+Content-Type: text/html
+Date: Tue, 30 Jun 2026 19:48:46 GMT
+ETag: "6a44134b-260"
+Last-Modified: Tue, 30 Jun 2026 19:04:43 GMT
+Server: nginx/1.27.5
+Connection: keep-alive
+
+
+HTTPS backend API health test:
+HTTP/1.1 200 OK
+Access-Control-Allow-Origin: *
+Content-Type: application/json
+Date: Tue, 30 Jun 2026 19:48:46 GMT
+Server: nginx/1.27.5
+Content-Length: 85
+Connection: keep-alive
+
+{"database":"connected","status":"healthy","timestamp":"2026-06-30T19:48:46.817864"}
+
+Kubernetes application status:
+NAME      SYNC STATUS   HEALTH STATUS
+taskapp   Synced        Healthy
+
+TaskApp pods:
+NAME                                READY   STATUS    RESTARTS   AGE
+taskapp-backend-7c8df55687-5q66n    1/1     Running   0          43m
+taskapp-frontend-65c99c77c4-nnsbp   1/1     Running   0          28m
+
+Frontend service:
+NAME               TYPE           CLUSTER-IP      EXTERNAL-IP                                                               PORT(S)                      AGE
+taskapp-frontend   LoadBalancer   100.66.160.25   a8343fe33e29e4a438b419805612f7af-1028792003.eu-west-3.elb.amazonaws.com   80:30792/TCP,443:31024/TCP   4h18m
+
+Deployed images:
+taskapp-backend => oparag/taskapp-backend:8087459
+taskapp-frontend => oparag/taskapp-frontend:8087459
