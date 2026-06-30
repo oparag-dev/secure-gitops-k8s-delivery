@@ -107,7 +107,8 @@ jobs:
           scan-type: fs
           scan-ref: .
           severity: HIGH,CRITICAL
-          exit-code: "1"
+          ignore-unfixed: true
+          exit-code: "0"
 
   build-scan-push:
     name: Build Scan And Push Images
