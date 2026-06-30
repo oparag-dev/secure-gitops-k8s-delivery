@@ -11,7 +11,7 @@ backend:
   replicaCount: 1
   image:
     repository: oparag/taskapp-backend
-    tag: "093eaf5"
+    tag: "8087459"
     pullPolicy: IfNotPresent
   env:
     databaseHost: taskapp-postgres.crammy6g8qwh.eu-west-3.rds.amazonaws.com
@@ -41,7 +41,7 @@ frontend:
   replicaCount: 1
   image:
     repository: oparag/taskapp-frontend
-    tag: "093eaf5"
+    tag: "8087459"
     pullPolicy: IfNotPresent
   service:
     type: LoadBalancer
