@@ -28,6 +28,29 @@ jobs:
     name: Validate Code And Config
     runs-on: ubuntu-latest
 
+    services:
+      postgres:
+        image: postgres:15
+        env:
+          POSTGRES_DB: taskapp
+          POSTGRES_USER: taskapp_user
+          POSTGRES_PASSWORD: taskapp_test_password
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U taskapp_user -d taskapp"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    env:
+      DATABASE_HOST: localhost
+      DATABASE_PORT: "5432"
+      DATABASE_NAME: taskapp
+      DATABASE_USER: taskapp_user
+      DATABASE_PASSWORD: taskapp_test_password
+      SECRET_KEY: test-secret-key
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
