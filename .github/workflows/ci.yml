@@ -32,13 +32,13 @@ jobs:
       postgres:
         image: postgres:15
         env:
-          POSTGRES_DB: taskapp
-          POSTGRES_USER: taskapp_user
-          POSTGRES_PASSWORD: taskapp_test_password
+          POSTGRES_DB: testdb
+          POSTGRES_USER: test
+          POSTGRES_PASSWORD: test
         ports:
           - 5432:5432
         options: >-
-          --health-cmd "pg_isready -U taskapp_user -d taskapp"
+          --health-cmd "pg_isready -U test -d testdb"
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
@@ -46,11 +46,11 @@ jobs:
     env:
       DATABASE_HOST: localhost
       DATABASE_PORT: "5432"
-      DATABASE_NAME: taskapp
-      DATABASE_USER: taskapp_user
-      DATABASE_PASSWORD: taskapp_test_password
+      DATABASE_NAME: testdb
+      DATABASE_USER: test
+      DATABASE_PASSWORD: test
       DATABASE_SSL_MODE: disable
-      DATABASE_URL: postgresql://taskapp_user:taskapp_test_password@localhost:5432/taskapp?sslmode=disable
+      DATABASE_URL: postgresql://test:test@localhost:5432/testdb?sslmode=disable
       SECRET_KEY: test-secret-key
 
     steps:
@@ -190,14 +190,12 @@ jobs:
               if indent == 0 and stripped in ("backend:", "frontend:"):
                   current_section = stripped.replace(":", "")
                   in_image_block = False
-
               elif indent == 0 and stripped.endswith(":"):
                   current_section = None
                   in_image_block = False
 
               if current_section in ("backend", "frontend") and indent == 2 and stripped == "image:":
                   in_image_block = True
-
               elif in_image_block and indent <= 2 and stripped != "image:":
                   in_image_block = False
 
