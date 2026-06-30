@@ -3,12 +3,13 @@
   hosts: localhost
   connection: local
   become: true
+
   tasks:
     - name: Update apt cache
       ansible.builtin.apt:
         update_cache: true
 
-    - name: Install required packages
+    - name: Install required system packages
       ansible.builtin.apt:
         name:
           - curl
@@ -16,6 +17,10 @@
           - jq
           - ca-certificates
           - gnupg
+          - git
+          - python3
+          - python3-pip
+          - snapd
         state: present
 
     - name: Install Helm through Snap
@@ -24,3 +29,24 @@
         classic: true
         state: present
 
+    - name: Install kubectl through Snap
+      community.general.snap:
+        name: kubectl
+        classic: true
+        state: present
+
+    - name: Confirm Helm installation
+      ansible.builtin.command: helm version --short
+      register: helm_version
+      changed_when: false
+
+    - name: Confirm kubectl installation
+      ansible.builtin.command: kubectl version --client
+      register: kubectl_version
+      changed_when: false
+
+    - name: Show installed tool versions
+      ansible.builtin.debug:
+        msg:
+          - "{{ helm_version.stdout }}"
+          - "{{ kubectl_version.stdout }}"

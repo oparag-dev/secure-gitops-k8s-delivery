@@ -1,0 +1,35 @@
+
+PLAY [Install local DevOps tools for secure GitOps project] ********************
+
+TASK [Gathering Facts] *********************************************************
+ok: [localhost]
+
+TASK [Update apt cache] ********************************************************
+changed: [localhost]
+
+TASK [Install required system packages] ****************************************
+ok: [localhost]
+
+TASK [Install Helm through Snap] ***********************************************
+ok: [localhost]
+
+TASK [Install kubectl through Snap] ********************************************
+ok: [localhost]
+
+TASK [Confirm Helm installation] ***********************************************
+ok: [localhost]
+
+TASK [Confirm kubectl installation] ********************************************
+ok: [localhost]
+
+TASK [Show installed tool versions] ********************************************
+ok: [localhost] => {
+    "msg": [
+        "v4.2.2+gb05881c",
+        "Client Version: v1.35.0\nKustomize Version: v5.7.1"
+    ]
+}
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=8    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
