@@ -44,7 +44,7 @@ frontend:
     tag: "499ab98"
     pullPolicy: IfNotPresent
   service:
-    type: ClusterIP
+    type: LoadBalancer
     port: 8080
   probes:
     path: /
