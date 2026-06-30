@@ -16,6 +16,8 @@ spec:
           - resources:
               kinds:
                 - Deployment
+              namespaces:
+                - taskapp
       validate:
         failureAction: Enforce
         message: "Container images must not use the latest tag."
@@ -32,6 +34,8 @@ spec:
           - resources:
               kinds:
                 - Deployment
+              namespaces:
+                - taskapp
       validate:
         failureAction: Enforce
         message: "Service account token automounting must be disabled."
@@ -47,6 +51,8 @@ spec:
           - resources:
               kinds:
                 - Deployment
+              namespaces:
+                - taskapp
       validate:
         failureAction: Enforce
         message: "Pods must run as non-root and use RuntimeDefault seccomp."
@@ -65,6 +71,8 @@ spec:
           - resources:
               kinds:
                 - Deployment
+              namespaces:
+                - taskapp
       validate:
         failureAction: Enforce
         message: "Containers must disable privilege escalation and drop all capabilities."
@@ -85,6 +93,8 @@ spec:
           - resources:
               kinds:
                 - Deployment
+              namespaces:
+                - taskapp
       validate:
         failureAction: Enforce
         message: "Containers must define CPU and memory requests and limits."

@@ -1,0 +1,8 @@
+NAME                                                READY   STATUS    RESTARTS   AGE
+argocd-application-controller-0                     1/1     Running   0          42s
+argocd-applicationset-controller-77497b89df-4qfxx   1/1     Running   0          44s
+argocd-dex-server-7c874c5958-5nxsv                  1/1     Running   0          44s
+argocd-notifications-controller-6c5f7c5dcc-67qjg    1/1     Running   0          43s
+argocd-redis-798565fd74-f4vrk                       1/1     Running   0          43s
+argocd-repo-server-59d57b7dcc-r2r48                 1/1     Running   0          43s
+argocd-server-7c8986577c-f6xf6                      1/1     Running   0          42s

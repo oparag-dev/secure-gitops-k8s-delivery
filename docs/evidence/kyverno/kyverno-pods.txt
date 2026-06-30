@@ -1,0 +1,5 @@
+NAME                                             READY   STATUS    RESTARTS   AGE
+kyverno-admission-controller-66756fbfdf-gnlkz    1/1     Running   0          7m23s
+kyverno-background-controller-57f7cb7c48-6tmzw   1/1     Running   0          7m23s
+kyverno-cleanup-controller-75c566db9c-cb4bs      1/1     Running   0          7m23s
+kyverno-reports-controller-dfdd969cd-r972m       1/1     Running   0          7m23s

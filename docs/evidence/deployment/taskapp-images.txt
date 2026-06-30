@@ -1,0 +1,2 @@
+taskapp-backend => oparag/taskapp-backend:v0.1.1
+taskapp-frontend => oparag/taskapp-frontend:v0.1.0

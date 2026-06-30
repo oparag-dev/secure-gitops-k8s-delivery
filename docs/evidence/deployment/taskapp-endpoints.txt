@@ -1,0 +1,3 @@
+NAME               ENDPOINTS              AGE
+taskapp-backend    100.109.250.16:5000    88m
+taskapp-frontend   100.122.244.199:8080   88m

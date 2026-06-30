@@ -1,0 +1,3 @@
+NAME               TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)    AGE
+taskapp-backend    ClusterIP   100.64.149.167   <none>        5000/TCP   2m42s
+taskapp-frontend   ClusterIP   100.66.160.25    <none>        8080/TCP   2m42s

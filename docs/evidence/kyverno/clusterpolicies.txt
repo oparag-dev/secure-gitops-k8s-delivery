@@ -1,0 +1,2 @@
+NAME                          ADMISSION   BACKGROUND   READY   AGE    MESSAGE
+taskapp-deployment-security   true        true         True    2m6s   Ready

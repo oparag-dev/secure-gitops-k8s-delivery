@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bad-latest-deployment
+  namespace: taskapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bad-latest-deployment
+  template:
+    metadata:
+      labels:
+        app: bad-latest-deployment
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:latest

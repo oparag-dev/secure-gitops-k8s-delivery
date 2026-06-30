@@ -1,0 +1,18 @@
+Error from server: error when creating "kyverno/tests/bad-deployment-latest.yaml": admission webhook "validate.kyverno.svc-fail" denied the request: 
+
+resource Deployment/taskapp/bad-latest-deployment was blocked due to the following policies 
+
+taskapp-deployment-security:
+  require-container-security-context: 'validation error: Containers must disable privilege
+    escalation and drop all capabilities. rule require-container-security-context
+    failed at path /spec/template/spec/containers/0/securityContext/'
+  require-pod-security-context: 'validation error: Pods must run as non-root and use
+    RuntimeDefault seccomp. rule require-pod-security-context failed at path /spec/template/spec/securityContext/runAsNonRoot/'
+  require-resource-requests-and-limits: 'validation error: Containers must define
+    CPU and memory requests and limits. rule require-resource-requests-and-limits
+    failed at path /spec/template/spec/containers/0/resources/limits/'
+  require-service-account-token-disabled: 'validation error: Service account token
+    automounting must be disabled. rule require-service-account-token-disabled failed
+    at path /spec/template/spec/automountServiceAccountToken/'
+  require-versioned-images: 'validation error: Container images must not use the latest
+    tag. rule require-versioned-images failed at path /spec/template/spec/containers/0/image/'

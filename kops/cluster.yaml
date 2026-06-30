@@ -38,50 +38,37 @@ spec:
   kubelet:
     anonymousAuth: false
   kubernetesApiAccess:
-  - 155.93.90.182/32
-  - 155.93.90.182/32
+  - 102.93.7.230/32
   kubernetesVersion: 1.35.6
   masterPublicName: api.k8s.oparatechstack.com
   networkCIDR: 10.0.0.0/16
-  networkID: vpc-074f7558181ad3b28
+  networkID: vpc-0deca127104c85401
   networking:
     calico: {}
   nonMasqueradeCIDR: 100.64.0.0/10
   sshAccess:
-  - 102.90.45.120/32
-  kubernetesApiAccess:
-  - 102.90.45.120/32
+  - 102.93.7.230/32
   subnets:
   - cidr: 10.0.11.0/24
-    id: subnet-0b11a0d7d14e38962
+    id: subnet-0614d8bc109a19977
     name: eu-west-3a
     type: Private
     zone: eu-west-3a
   - cidr: 10.0.12.0/24
-    id: subnet-0246109b2359e3b90
+    id: subnet-0719174ebf90528df
     name: eu-west-3b
     type: Private
     zone: eu-west-3b
-  - cidr: 10.0.13.0/24
-    id: subnet-0643ee627157f1e42
-    name: eu-west-3c
-    type: Private
-    zone: eu-west-3c
   - cidr: 10.0.1.0/24
-    id: subnet-0bae92662870cd721
+    id: subnet-0ece7927b1d60ff55
     name: utility-eu-west-3a
     type: Utility
     zone: eu-west-3a
   - cidr: 10.0.2.0/24
-    id: subnet-052905b7848163143
+    id: subnet-040efa02f32932c6c
     name: utility-eu-west-3b
     type: Utility
     zone: eu-west-3b
-  - cidr: 10.0.3.0/24
-    id: subnet-0cdc937d1b9ac742a
-    name: utility-eu-west-3c
-    type: Utility
-    zone: eu-west-3c
   topology:
     dns:
       type: Public
@@ -96,7 +83,7 @@ metadata:
   name: control-plane-eu-west-3a
 spec:
   image: 099720109477/ubuntu/images/hvm-ssd-gp3/ubuntu-noble-24.04-amd64-server-20260610
-  machineType: t3.small
+  machineType: t3.medium
   maxSize: 1
   minSize: 1
   role: Master
@@ -136,20 +123,3 @@ spec:
   role: Node
   subnets:
   - eu-west-3b
-
----
-
-apiVersion: kops.k8s.io/v1alpha2
-kind: InstanceGroup
-metadata:
-  labels:
-    kops.k8s.io/cluster: k8s.oparatechstack.com
-  name: nodes-eu-west-3c
-spec:
-  image: 099720109477/ubuntu/images/hvm-ssd-gp3/ubuntu-noble-24.04-amd64-server-20260610
-  machineType: t3.small
-  maxSize: 1
-  minSize: 1
-  role: Node
-  subnets:
-  - eu-west-3c
