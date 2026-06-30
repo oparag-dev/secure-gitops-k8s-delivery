@@ -20,8 +20,8 @@ permissions:
   security-events: write
 
 env:
-  BACKEND_IMAGE: ${{ secrets.DOCKERHUB_USERNAME }}/taskapp-backend
-  FRONTEND_IMAGE: ${{ secrets.DOCKERHUB_USERNAME }}/taskapp-frontend
+  BACKEND_IMAGE: oparag/taskapp-backend
+  FRONTEND_IMAGE: oparag/taskapp-frontend
 
 jobs:
   validate:
