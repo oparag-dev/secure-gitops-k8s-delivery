@@ -1,0 +1,35 @@
+Full-stack public domain test
+
+Frontend URL:
+http://app.oparatechstack.com
+
+Frontend HTTP test:
+HTTP/1.1 200 OK
+Server: nginx/1.27.5
+Date: Tue, 30 Jun 2026 19:22:39 GMT
+Content-Type: text/html
+Content-Length: 608
+Last-Modified: Tue, 30 Jun 2026 19:04:43 GMT
+Connection: keep-alive
+ETag: "6a44134b-260"
+Accept-Ranges: bytes
+
+
+Backend API through same domain:
+HTTP/1.1 200 OK
+Server: nginx/1.27.5
+Date: Tue, 30 Jun 2026 19:22:39 GMT
+Content-Type: application/json
+Content-Length: 85
+Connection: keep-alive
+Access-Control-Allow-Origin: *
+
+{"database":"connected","status":"healthy","timestamp":"2026-06-30T19:22:39.923723"}
+
+Frontend pod:
+NAME                                READY   STATUS    RESTARTS   AGE     IP              NODE                  NOMINATED NODE   READINESS GATES
+taskapp-frontend-65c99c77c4-nnsbp   1/1     Running   0          2m10s   100.105.14.18   i-0f23d090269cfaca0   <none>           <none>
+
+Frontend service:
+NAME               TYPE           CLUSTER-IP      EXTERNAL-IP                                                               PORT(S)        AGE
+taskapp-frontend   LoadBalancer   100.66.160.25   a8343fe33e29e4a438b419805612f7af-1028792003.eu-west-3.elb.amazonaws.com   80:30792/TCP   3h51m
