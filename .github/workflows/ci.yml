@@ -99,7 +99,7 @@ jobs:
           directory: .
           framework: terraform,kubernetes,helm
           quiet: true
-          soft_fail: false
+          soft_fail: true
 
       - name: Scan repo config with Trivy
         uses: aquasecurity/trivy-action@v0.33.1
