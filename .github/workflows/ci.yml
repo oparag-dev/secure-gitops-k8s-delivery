@@ -49,6 +49,8 @@ jobs:
       DATABASE_NAME: taskapp
       DATABASE_USER: taskapp_user
       DATABASE_PASSWORD: taskapp_test_password
+      DATABASE_SSL_MODE: disable
+      DATABASE_URL: postgresql://taskapp_user:taskapp_test_password@localhost:5432/taskapp?sslmode=disable
       SECRET_KEY: test-secret-key
 
     steps:
