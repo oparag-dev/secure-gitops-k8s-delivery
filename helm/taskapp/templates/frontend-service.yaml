@@ -6,6 +6,10 @@ metadata:
     app.kubernetes.io/name: {{ .Values.frontend.name }}
     app.kubernetes.io/part-of: taskapp
     app.kubernetes.io/component: frontend
+{{- with .Values.frontend.service.annotations }}
+  annotations:
+{{ toYaml . | indent 4 }}
+{{- end }}
 spec:
   type: {{ .Values.frontend.service.type }}
   selector:
@@ -14,4 +18,10 @@ spec:
     - name: http
       port: {{ .Values.frontend.service.port }}
       targetPort: http
-
+{{- with .Values.frontend.service.tls }}
+{{- if .enabled }}
+    - name: https
+      port: {{ .port }}
+      targetPort: http
+{{- end }}
+{{- end }}

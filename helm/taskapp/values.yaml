@@ -46,6 +46,13 @@ frontend:
   service:
     type: LoadBalancer
     port: 80
+    annotations:
+      service.beta.kubernetes.io/aws-load-balancer-ssl-cert: "arn:aws:acm:eu-west-3:709716141727:certificate/0e13112a-6666-4a9f-af9b-9e581a4c273d"
+      service.beta.kubernetes.io/aws-load-balancer-backend-protocol: "http"
+      service.beta.kubernetes.io/aws-load-balancer-ssl-ports: "https"
+    tls:
+      enabled: true
+      port: 443
   probes:
     path: /
     initialDelaySeconds: 5
