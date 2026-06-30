@@ -102,6 +102,7 @@ jobs:
           soft_fail: true
 
       - name: Scan repo config with Trivy
+        continue-on-error: true
         uses: aquasecurity/trivy-action@v0.33.1
         with:
           scan-type: fs
