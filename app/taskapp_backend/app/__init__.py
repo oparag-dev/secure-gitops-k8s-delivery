@@ -13,6 +13,7 @@ def create_app():
     db_host = os.getenv('DATABASE_HOST')
     db_port = os.getenv('DATABASE_PORT', '5432')
     db_name = os.getenv('DATABASE_NAME')
+    db_ssl_mode = os.getenv('DATABASE_SSL_MODE', 'require')
     db_user = os.getenv('DATABASE_USER')
     db_password = os.getenv('DATABASE_PASSWORD')
 
